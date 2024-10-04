@@ -1,0 +1,287 @@
+@import url(/css/reset.css);
+
+//!MIXINS
+@mixin opacityColor($prop, $value){
+    $prop: $value;
+}
+
+
+
+//!COLORS
+$main-background: rgb(7, 48, 44);
+$text-color: rgb(255, 255, 255);
+$dark-text-color: rgb(217, 217, 217);
+%gradient-color{
+background: linear-gradient(117deg,  #e8482e 0%,#d06d37 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+
+//!THE MAIN CODE
+
+//!HEADER
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 3rem 0 0 0;
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        row-gap: 1.25rem;
+        column-gap: 2.5rem;
+        @media (max-width: 500px) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+    &__navigation{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__burger {
+        position: relative;
+        margin: 0 2.8125rem 0 0;
+        width: 40px;
+        height: 25px;
+        cursor: pointer;
+        @media (min-width: 37.5625em) {
+            width: 59px;
+            height: 44px;
+        }
+        & span,
+        &:before,
+        &:after{
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: $text-color;
+        }
+        &::before,
+        &::after{
+            content: '';
+        }
+        & span{
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+        &::before{
+            top: 0;
+        }
+        &::after{
+            bottom: 0;
+        }
+    }
+
+    &__logo {
+        font-size: 2.5rem;
+        font-family: "Italiana";
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+    &__menu{
+        display: none;
+    }
+
+    &__list {
+    }
+
+    &__link {
+    }
+
+    &__icons {
+        gap: 3.25rem;
+    }
+    &::before{
+        content: url(/img/strawberry-boul.png);
+        position: absolute;
+        left: 40%;
+        top: 0;
+    }
+}
+.icons-header {
+    display: flex;
+    justify-content: space-between;
+    &__icon {
+        position: relative;
+
+        .icons-header__notification{
+            font-size: 0.625rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 15px;
+            height: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Inter";
+            border-radius: 50%;
+            @extend %gradient-color;
+        }
+    }
+}
+
+//!MAIN PAGE
+
+//!PRODUCT
+.page {
+    position: relative;
+    margin: 14.5rem 0 0 0;
+    &__product {
+    }
+}
+.product {
+
+    &__container{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__data {
+        display: flex;
+        flex-direction: column;
+        gap: 5.125rem;
+        margin: 3.125rem 0 0 0;
+    }
+
+    &__title {
+        margin: 0 0 13px 0;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+    &__body {
+        p{
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.6);
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__topings {
+        display: flex;
+        column-gap: 2.6875rem;
+        align-items: flex-end;
+        &:hover{
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+    
+    &__icon {
+        
+        &_plus {
+        }
+
+        &_heart,
+        &_plus {
+            cursor: pointer;
+            transition: all 0.5s ease 0s;
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &__add-toping {
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 100;
+    }
+
+    &__size-selector {
+    }
+
+    &__price-favorites {
+        display: flex;
+        flex-direction: column;
+        row-gap: 5.125rem;
+        margin: 5.125rem 0 0 0;
+    }
+    &__prices,
+    &__favorites{
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__prices{
+        display: flex;
+        column-gap: 4.5rem;
+    }
+    &__favorites{
+        display: flex;
+        column-gap: 1.5625rem;
+        font-weight: 100;
+        color: rgba(255, 255, 255, 0.6);
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+    &__price-value {
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+    &__cart {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        @extend %gradient-color;
+        box-shadow: 3px 10px 20px rgba(208, 109, 55, 0.6);
+        transition: all 0.5s ease 0s;
+        &:hover{
+            transform: scale(1.05);
+        }
+    }
+
+    &__favorites {
+    }
+    
+    &__take-favorites {
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+.title {
+}
+.size-selector {    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__label {
+        margin: 0 0 3.625rem 0;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
+    &__options {
+        display: flex;
+        gap: 2.875rem;
+    }
+
+    &__input {
+        width: 65px;
+        height: 65px;
+        transition: all 0.5s ease 0s;
+        &:hover{
+            transform: scale(1.05);
+        }
+        & input[type="radio"]{
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

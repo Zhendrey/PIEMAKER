@@ -1,0 +1,103 @@
+//!CONNECTING FONTS
+@import url(https://fonts.googleapis.com/css?family=Jost:100,300,600,700);
+@import url(https://fonts.googleapis.com/css?family=Inter:100,600);
+@import url(https://fonts.googleapis.com/css?family=Italiana:regular);
+
+//!MIXINS
+@mixin opacityColor($prop, $value){
+    $prop: $value;
+}
+
+
+
+//!COLORS
+$main-background: rgb(7, 48, 44);
+$text-color: rgb(255, 255, 255);
+$dark-text-color: rgb(217, 217, 217);
+%gradient-color{
+background: linear-gradient(117deg,  #e8482e 0%,#d06d37 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+//! REGULAR SELECTORS
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+*,*::before,*::after{
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+    height: 100%;
+    min-width: 20rem;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 0.875rem;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+body{
+    background-color: $main-background;
+    color: $text-color;
+    font-size: 1.25rem;
+    font-family: "Jost";
+}
+input,button,textarea{font-family: inherit;}
+
+//input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding: 0;border: 0;}
+a, a:visited{text-decoration: none; color: inherit;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+
+.active{
+    display: block;
+}
+.selected-item{
+    @include opacityColor(border, 1px solid $text-color 1);
+}
+
+//!ATTRIBUTE SELECTORS
+[class*="__container"]{
+    margin: 0 auto;
+    padding: 0 0.9375rem;
+}
+[class*="title"]{
+    font-weight: 700;
+}
+[src*="heart"],
+[src*="cart"],
+[src*="plus"]{
+    transition: all 0.5s ease 0s;
+    &:hover{
+        transform: scale(1.05);
+    }
+}
+.header__container{
+    max-width: 108.625rem;
+}
+.page__container{
+    max-width: 94.0625rem;
+}
+.footer__container{
+    max-width: 105.0625rem;
+}
+.title{
+    font-size: 3.125rem;
+}
+.title-small{
+    font-size: 2.5rem;
+}
